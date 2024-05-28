@@ -1,4 +1,4 @@
-<img src=logo.png width=64>
+<div><img src=logo.png width=64></div>
 
 # Aarre Laakso, Ph.D.
 
