@@ -21,7 +21,7 @@
 # lang:                  en
 
 # The title of your blog. Used in the sidebar and the browser tab.
-title: Aarre Laakso, Ph.D.
+title:        Aarre Laakso, Ph.D.
 
 # A short description (~150 chars) of the page used for the meta description tag.
 # Can use markdown, but no more than one paragraph (enforced by `>`)
@@ -92,18 +92,12 @@ font_code:             Fira Code, Menlo, Monaco, Consolas, monospace;
 # google_analytics:      UA-XXXXXXXX-X
 
 
-  # Code blocks and tables "break" the layout by spanning the full available width.
-  # Set this to true if you want them to be the same width as other content.
-  no_break_layout:     true
+# Code blocks and tables "break" the layout by spanning the full available width.
+# Set this to true if you want them to be the same width as other content.
+no_break_layout:     true
 
 
-  # Collections
-# ----------------------------------------------------------------------------------------
-
-
-
-
-  # File inclusion/exclusion
+# File inclusion/exclusion
 # ----------------------------------------------------------------------------------------
 
 exclude:
