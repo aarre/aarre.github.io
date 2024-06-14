@@ -1,4 +1,7 @@
 remote_theme: hydecorp/hydejack@v9.1.6
 title: Aarre Laakso, Ph.D.
+author:
+  name:  Aarre Laakso
+  email: aarre.laakso@gmail.com
 plugins:
   - jekyll-include-cache
