@@ -18,14 +18,7 @@
 
 # Language of your content in 2-letter code, e.g.: en, de.
 # You may also provide a location, e.g.: en-us, de_AT.
-#lang:                  en
-
-# Theme
-# ---------------------------------------------------------------------------------------
-
-# theme: jekyll-theme-hydejack
-remote_theme: hydecorp/hydejack@v9
-
+# lang:                  en
 
 # The title of your blog. Used in the sidebar and the browser tab.
 title: Aarre Laakso, Ph.D.
@@ -46,14 +39,22 @@ author:
 
 # Add links to the sidebar.
 menu:
+
   - title: Curriculum Vitae
     url:   /cv/
+
   - title: Publications
     url:   /publications/
+
 collections:
+
   portfolio:
-    permalink: /portfolio/:path/
-    output:    true
+    permalink:         /portfolio/:path/
+    output:            true
+
+  publications:
+    permalink:         /publications/:path/
+    output:            true
 
 # This text will appear in a `<small>` tag in the footer of every page.
 copyright:             © 2024. All rights reserved.
@@ -104,13 +105,6 @@ font_code:             Fira Code, Menlo, Monaco, Consolas, monospace;
 
 
 
-  portfolio:
-    permalink:         /portfolio/:path/
-    output:            true
-
-  publications:
-    permalink:         /publications/:path/
-    output:            true
 
   # File inclusion/exclusion
 # ----------------------------------------------------------------------------------------
