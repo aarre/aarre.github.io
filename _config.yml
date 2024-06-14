@@ -5,3 +5,10 @@ author:
   email: aarre.laakso@gmail.com
 plugins:
   - jekyll-include-cache
+menu:
+  - title: CV
+    url:   /cv/
+  - title: Publications
+    url:   /publications/
+  - title: Portfolio
+    url:   /portfolio/
