@@ -43,9 +43,6 @@ menu:
   - title: Curriculum Vitae
     url:   /cv/
 
-  - title: Publications
-    url:   /publications/
-
 collections:
 
   portfolio:
