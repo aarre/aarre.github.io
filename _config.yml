@@ -10,5 +10,7 @@ menu:
     url:   /cv/
   - title: Publications
     url:   /publications/
-  - title: Portfolio
-    url:   /portfolio/
+collections:
+  portfolio:
+    permalink: /portfolio/:path/
+    output:    true
