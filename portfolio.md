@@ -1,6 +1,6 @@
 ---
 layout:          projects
-title:           Portfolio*
+title:           Portfolio
 show_collection: portfolio
 featured:        true
 description: >

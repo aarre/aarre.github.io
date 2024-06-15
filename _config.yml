@@ -54,8 +54,8 @@ menu:
 #    url:               /blog/
   - title:             CV
     url:               /cv/
-  - title:             Projects
-    url:               /projects/
+  # - title:             Projects
+  #   url:               /projects/
   - title:             Portfolio
     url:               /portfolio/
   - title:             Publications
