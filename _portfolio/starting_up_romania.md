@@ -1,5 +1,5 @@
 ---
-layout:      portfolio
+layout:      project
 title:       Starting Up Romania*
 date:        2 Jan 2014
 caption:     Hyde is a brazen two-column Jekyll theme.

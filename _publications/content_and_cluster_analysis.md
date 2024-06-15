@@ -1,5 +1,5 @@
 ---
-layout:      projects
+layout:      project
 title:       Content and cluster analysis*
 date:        2 Jan 2014
 caption:     My brain and your brain.
