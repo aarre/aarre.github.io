@@ -45,8 +45,8 @@ menu:
 
 collections:
 
-  portfolio:
-    permalink:         /portfolio/:path/
+  projects:
+    permalink:         /projects/:path/
     output:            true
 
   publications:
@@ -163,3 +163,16 @@ jekyll_compose:
       links:
         - title: Project Link
           url: https://example.com
+
+
+
+# Note that dark mode only works in the PRO version of Hydejack.
+dark_mode:
+  # Set to `true` to always use the dark theme.
+  always:            true
+
+  # Set to `true` to use the dark theme based on visitors' preference (OS setting).
+  dynamic:           true
+
+  # Set to `true` to allow visitors to switch between light and dark mode.
+  icon:              true
