@@ -11,6 +11,7 @@
 # NOTE: You don't need to provide this property when hosting on GitHub Pages or Netlify.
 # baseurl:               '/hydejack-starter-kit'
 
+cover:  true
 
 # General settings
 # ---------------------------------------------------------------------------------------
@@ -50,12 +51,8 @@ author:
 
 # Add links to the sidebar.
 menu:
-#  - title:             Blog
-#    url:               /blog/
   - title:             CV
-    url:               /cv/
-  # - title:             Projects
-  #   url:               /projects/
+    url:               /cv.pdf
   - title:             Portfolio
     url:               /portfolio/
   - title:             Publications
@@ -155,6 +152,11 @@ defaults:
       seo:
         type:          WebPage
   - scope:
+      type:            publications
+    values:
+      seo:
+        type:          WebPage
+  - scope:
       type:            featured_categories
     values:
       seo:
@@ -176,7 +178,7 @@ kramdown:
 
 # Set your Google Analytics id to receive `pageview` events.
 # To remove Google Anaylics from your page, remove the line below.
-# google_analytics:      UA-XXXXXXXX-X
+google_analytics:      G-64ZH05K937
 
 # Setting a disqus shortname will enable the comment section on
 # pages with `comments: true` in the front matter.
