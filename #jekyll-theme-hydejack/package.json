@@ -32,8 +32,8 @@
   "license": "GPL-3.0",
   "private": true,
   "devDependencies": {
-    "@babel/core": "^7.17.0",
-    "@babel/preset-env": "^7.16.11",
+    "@babel/core": ">=7.23.2",
+    "@babel/preset-env": ">=7.23.2",
     "babel-loader": "^8.2.3",
     "bower": "^1.8.13",
     "dedent": "^0.7.0",
@@ -50,7 +50,8 @@
     "yargs": "^16.2.0"
   },
   "dependencies": {
-    "@babel/polyfill": "^7.12.1",
+    "@babel/core": ">=7.23.2",
+    "@babel/polyfill": ">=7.23.2",
     "@getclaps/button": "^1.0.0-alpha.21",
     "@hydecorp/component": "^1.0.0",
     "@hydecorp/drawer": "^1.0.0",
