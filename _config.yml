@@ -156,16 +156,6 @@ defaults:
     values:
       seo:
         type:          WebPage
-  - scope:
-      type:            featured_categories
-    values:
-      seo:
-        type:          WebPage
-  - scope:
-      type:            featured_tags
-    values:
-      seo:
-        type:          WebPage
 
 kramdown:
   math_engine:         mathjax
@@ -298,17 +288,6 @@ hydejack:
 # ----------------------------------------------------------------------------------------
 
 collections:
-  featured_categories:
-    permalink:         /blog/:name/
-    output:            true
-
-  featured_tags:
-    permalink:         /tag-:name/
-    output:            true
-
-  projects:
-    permalink:         /projects/:path/
-    output:            true
 
   portfolio:
     permalink:         /portfolio/:path/

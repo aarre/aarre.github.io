@@ -4,6 +4,5 @@ title:           Portfolio
 show_collection: portfolio
 featured:        true
 description: >
-  How people are using Hydejack in the real world. 
-  This page is built using the `projects` layout* that you can use yourself to build a portfolio.
+  This page features public documents in which my work is acknowledged.
 ---
