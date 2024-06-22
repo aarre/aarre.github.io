@@ -1,16 +1,20 @@
 #!/usr/bin/python
 
-from wordcloud import WordCloud
-import matplotlib.pyplot as plt
-from PIL import Image
-import numpy as np
-import PyPDF4
-import textblob
-import enchant
 import itertools
-import logging, sys
+import logging
 import re
 import string
+import sys
+
+import matplotlib.pyplot as plt
+import textblob
+import wordcloud
+
+import PyPDF4
+
+# The pyenchant package requires the enchant package, which is only available for Windows, so this script must
+# be run on Linux or Max OS X.
+import pyenchant
 
 logging.basicConfig(stream=sys.stdout, level=logging.DEBUG)
 
@@ -108,8 +112,8 @@ frequencies = singular_blob.np_counts
 frequencies.pop("world bank", None)
 frequencies.pop("world bank group", None)
 
-cloud = WordCloud(width=1920, height=1080, background_color='white',
-                  font_path="./assets/fonts/roboto/Roboto-Regular.ttf").generate_from_frequencies(frequencies)
+cloud = wordcloud.WordCloud(width=1920, height=1080, background_color='white',
+                            font_path="./assets/fonts/roboto/Roboto-Regular.ttf").generate_from_frequencies(frequencies)
 
 plt.imshow(cloud)
 plt.tight_layout(pad=0)
