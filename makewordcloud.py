@@ -1,17 +1,25 @@
 #!venv/bin/python3
 
+import collections
 import logging
 import re
 import sys
 
 import matplotlib.pyplot as plt
+import nltk
 import textblob
 import wordcloud
 
-import nltk
 nltk.download('brown')
 nltk.download('punkt')
+nltk.download('wordnet')
 nltk.download('words')
+
+from nltk.corpus import wordnet as wn
+from nltk.stem.wordnet import WordNetLemmatizer
+from nltk import pos_tag
+
+from collections import defaultdict
 
 logging.basicConfig(stream=sys.stdout, level=logging.DEBUG)
 
@@ -61,22 +69,54 @@ def write_string_to_file(the_string, filename):
 with open('_portfolio/scaling_up_romania.txt', 'r') as file:
     text = file.read()
 text = text.replace("\n", " ")
-#text = text.translate(str.maketrans('', '', string.punctuation))  # Remove all punctuation
+# text = text.translate(str.maketrans('', '', string.punctuation))  # Remove all punctuation
 # Remove short words
-' '.join(word for word in text.split() if len(word)>2)
+" ".join(word for word in text.split() if len(word) > 2)
 # Remove possessives with curly quotes, which show up as their own words with space in them
-text = case_insensitive_replace("’s","", text)
+text = case_insensitive_replace("’s", "", text)
+
+# Keep a copy for debugging
 write_string_to_file(text, "original.txt")
 
-# # Drop non-English words and "stem" (lemmatize)
+# Stem (lemmatize) and drop non-English words
+
+tag_map = defaultdict(lambda: wn.NOUN)
+tag_map['J'] = wn.ADJ
+tag_map['V'] = wn.VERB
+tag_map['R'] = wn.ADV
+
+# tokens = word_tokenize(text)
+delimiters = {r"\s+", ";", ":", ".", "(", ")", "/", "“", "”"}
+regexp = r"[" + "|".join(delimiters) + r"]\s*"
+print("Regexp:", "<" + regexp + ">")
+tokens = re.split(regexp, text)
+print("Tokens: " + " ".join(tokens))
+
+tokens = [token for token in tokens if token not in delimiters]
+print("Tokens: " + " ".join(tokens))
+words = set(nltk.corpus.words.words())
+custom_words = {"logframe", "msme", "msmes", "r&d", "sme", "smes", "startup"}
+lemma_function = WordNetLemmatizer()
+text_list = []
+for token, tag in pos_tag(tokens):
+    lemma = lemma_function.lemmatize(token, tag_map[tag[0]])
+    lemma = lemma.lower()
+    if len(lemma) > 2 and (lemma in words or lemma in custom_words):
+        text_list.append(lemma)
+        # print(token, "=>", lemma)
+    else:
+        print("Rejected: '" + token + "' => '" + lemma + "'")
+
+text = " ".join(text_list)
+
 # snow_stemmer = SnowballStemmer(language='english')
 # words = set(nltk.corpus.words.words())
 # text = " ".join(snow_stemmer.stem(w) for w in nltk.wordpunct_tokenize(text) if snow_stemmer.stem(w) in words)
-# write_string_to_file(text, "english.txt")
+write_string_to_file(text, "english.txt")
 
 # Remove consecutive duplicates
 # See https://stackoverflow.com/questions/39237350/how-do-i-remove-consecutive-duplicates-from-a-list
-#english_words = [k for k, g in itertools.groupby(english_words)]
+# english_words = [k for k, g in itertools.groupby(english_words)]
 
 # Remove some useless words
 # english_words = case_insensitive_remove_values_from_list(english_words, "and")
@@ -94,7 +134,7 @@ write_string_to_file(text, "original.txt")
 # english_words = case_insensitive_remove_values_from_list(english_words, "world bank group")
 
 # Do some lemmatization by hand
-#english_text = " ".join(english_words)
+# english_text = " ".join(english_words)
 # english_text = text
 # english_text = case_insensitive_replace("entrepreneurial", "entrepreneurship", english_text)
 # english_text = case_insensitive_replace("instruments", "instrument", english_text)
@@ -104,9 +144,9 @@ write_string_to_file(text, "original.txt")
 # english_text = case_insensitive_replace("startups", "startup", english_text)
 
 # Try to correct spelling
-blob = textblob.blob.TextBlob(text)
+#blob = textblob.blob.TextBlob(text)
 
-#blob.correct() - too slow
+# blob.correct() - too slow
 
 # Do automated lemmatization
 # singular_list = [word.lemmatize() for word in blob.words]
@@ -115,18 +155,34 @@ blob = textblob.blob.TextBlob(text)
 # write_string_to_file(singular_text, "singular.txt")
 # singular_blob = textblob.blob.TextBlob(singular_text)
 
-# Get frequencies of noun phrases
-frequencies = blob.np_counts
+frequencies = collections.Counter()
+for word in text.split(" "):
+    frequencies[word] += 1
 
-# Remove short words (again)
-frequencies = {key:frequencies[key] for key in frequencies if len(key)>2}
+frequencies = dict(frequencies)
+
+# # Get frequencies of noun phrases
+# frequencies = blob.np_counts
+#
+# # Remove short words (again)
+#frequencies = {key: frequencies[key] for key in frequencies if len(key) > 2}
 
 # Remove distractors
+frequencies.pop("and", None)
+frequencies.pop("can", None)
 frequencies.pop("figure", None)
+frequencies.pop("for", None)
+frequencies.pop("from", None)
+frequencies.pop("have", None)
 frequencies.pop("number", None)
 frequencies.pop("romania", None)
 frequencies.pop("romanian", None)
 frequencies.pop("source", None)
+frequencies.pop("than", None)
+frequencies.pop("that", None)
+frequencies.pop("the", None)
+frequencies.pop("this", None)
+frequencies.pop("with", None)
 frequencies.pop("world bank", None)
 frequencies.pop("world bank group", None)
 
