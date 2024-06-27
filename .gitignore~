@@ -3,7 +3,5 @@ _site
 .jekyll-cache
 .jekyll-metadata
 vendor
-*.bak
-*.bak2
 *.bak/
 *.bak2/
