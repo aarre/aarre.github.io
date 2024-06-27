@@ -47,7 +47,9 @@ def make_one_png(pdf_path_string: str, y_offset: int, height: int):
 if __name__ == "__main__":
     logging.basicConfig(level=logging.INFO)
     logger.info("Starting up")
-    make_one_png("_portfolio/digital entrepreneurship and "
-                 "innovation in central america.pdf", 400, 800)
-    make_one_png("_portfolio/scaling up romania.pdf", 0, 800)
-    make_one_png("_portfolio/starting up romania.pdf", 0, 800)
+    make_one_png(
+        "_portfolio/digital_entrepreneurship_and_innovation_in_central_america.pdf",
+        400,
+        800)
+    make_one_png("_portfolio/scaling_up_romania.pdf", 0, 800)
+    make_one_png("_portfolio/starting_up_romania.pdf", 0, 800)
