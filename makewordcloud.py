@@ -16,6 +16,7 @@ from nltk.stem.wordnet import WordNetLemmatizer
 from nltk import pos_tag
 from collections import defaultdict
 
+nltk.download('averaged_perceptron_tagger')
 nltk.download('brown')
 nltk.download('punkt')
 nltk.download('wordnet')
@@ -58,13 +59,18 @@ def case_insensitive_remove_values_from_list(the_list,
 
 
 def write_string_to_file(the_string, filename):
-    with open(filename, 'w') as f:
+    with open(filename, 'w', encoding='utf-8') as f:
         f.write(the_string)
 
-if __name__ == "__main__":
-    logging.basicConfig(level=logging.INFO)
-    logger.info("Starting up")
 
+def make_one_word_cloud(text_path: str, image_path: str):
+    """
+    Make a single word cloud image from a single text file.
+
+    :param text_path: Path to the text file that serves as input.
+    :param image_path: Path to the image file that will result.
+    :return:
+    """
     # Extract text from PDF
     # pdfFileObj = open('_portfolio/scaling_up_romania.pdf', 'rb')
     # pdfReader = PyPDF4.PdfFileReader(pdfFileObj)
@@ -75,7 +81,7 @@ if __name__ == "__main__":
     # text = text.replace("\n-", "")
 
     # Avoid text from PDFs, which is full of OCR garbage in many cases
-    with open('_portfolio/scaling_up_romania.txt', 'r') as file:
+    with open(text_path, 'r', encoding='utf-8') as file:
         text = file.read()
     text = text.replace("\n", " ")
     # text = text.translate(str.maketrans('', '', string.punctuation))  # Remove all punctuation
@@ -111,7 +117,8 @@ if __name__ == "__main__":
     for token, tag in pos_tag(tokens):
         lemma = lemma_function.lemmatize(token, tag_map[tag[0]])
         lemma = lemma.lower()
-        if len(lemma) > 2 and (lemma in words or lemma in custom_words):
+        if len(lemma) > 2 and (
+                lemma in words or lemma in custom_words):
             text_list.append(lemma)  # print(token, "=>", lemma)
         else:
             print("Rejected: '" + token + "' => '" + lemma + "'")
@@ -153,7 +160,7 @@ if __name__ == "__main__":
     # english_text = case_insensitive_replace("startups", "startup", english_text)
 
     # Try to correct spelling
-    #blob = textblob.blob.TextBlob(text)
+    # blob = textblob.blob.TextBlob(text)
 
     # blob.correct() - too slow
 
@@ -174,7 +181,7 @@ if __name__ == "__main__":
     # frequencies = blob.np_counts
     #
     # # Remove short words (again)
-    #frequencies = {key: frequencies[key] for key in frequencies if len(key) > 2}
+    # frequencies = {key: frequencies[key] for key in frequencies if len(key) > 2}
 
     # Remove distractors
     frequencies.pop("and", None)
@@ -203,6 +210,19 @@ if __name__ == "__main__":
     plt.imshow(cloud)
     plt.tight_layout(pad=0)
     plt.axis('off')
-    plt.savefig('_portfolio/scaling_up_romania_word_cloud.png',
-                dpi=300,
-                bbox_inches='tight')
+    plt.savefig(image_path,
+                dpi=300, bbox_inches='tight')
+
+
+if __name__ == "__main__":
+    logging.basicConfig(level=logging.INFO)
+    logger.info("Starting up word cloud generator")
+
+    make_one_word_cloud("_portfolio/scaling_up_romania.txt",
+                        "_portfolio/scaling_up_romania_word_cloud.png")
+
+    make_one_word_cloud("_portfolio/starting_up_romania.txt",
+                        "_portfolio/starting_up_romania_word_cloud.png")
+
+    make_one_word_cloud("_portfolio/digital_entrepreneurship_and_innovation_in_central_america.txt",
+                        "_portfolio/digital_entrepreneurship_and_innovation_in_central_america_word_cloud.png")
