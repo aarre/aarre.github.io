@@ -31,3 +31,6 @@ ecosystem in Romania.
  Christopher Haley, Zoe Cordelia Lu, and Arslan Can. 2022. “Starting
  Up Romania: Entrepreneurship Ecosystem Diagnostic.” Washington, DC:
  World Bank. <https://hdl.handle.net/10986/37564>.
+
+![Word cloud image representing frequency of terms in this document](/portfolio/scaling_up_romania_word_cloud.png "Scaling up Romania Word Cloud")
+
