@@ -313,6 +313,7 @@ exclude:
   - .ssh
   - '*.bak'
   - '*.bak2'
+  - '*.mk'
   - '*.pdf'
   - '*.py'
   - '*.toml'
@@ -320,6 +321,8 @@ exclude:
   - docs
   - example
   - licenses
+  - Make.hs
+  - Makefile
   - vendor
   - Gemfile
   - Gemfile.lock
