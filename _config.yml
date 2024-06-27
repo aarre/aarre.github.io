@@ -13,6 +13,9 @@
 
 cover:  true
 
+# Try this to improve performance
+minify_html: false
+
 # General settings
 # ---------------------------------------------------------------------------------------
 
@@ -303,9 +306,20 @@ collections:
 exclude:
   - ./#jekyll-theme-hydejack/node_modules
   - ./#jekyll-theme-hydejack/.git
+  - .git
+  - .gitignore
   - .jekyll-cache
   - .sass-cache
+  - .ssh
+  - '*.bak'
+  - '*.bak2'
+  - '*.pdf'
+  - '*.py'
   - '*.toml'
+  - '*.txt'
+  - docs
+  - example
+  - licenses
   - vendor
   - Gemfile
   - Gemfile.lock
