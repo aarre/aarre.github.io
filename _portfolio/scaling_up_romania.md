@@ -8,7 +8,7 @@ featured:    false
 image: 
   path: /portfolio/scaling_up_romania.png
 links:
-  - title: Link
+  - title: Link to original
     url: https://hdl.handle.net/10986/37582
 ---
 
