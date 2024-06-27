@@ -37,3 +37,6 @@ links:
  Christopher Haley, Zoe Cordelia Lu, and Arslan Can. 2022. “Starting
  Up Romania: Entrepreneurship Ecosystem Diagnostic.” Washington, DC:
  World Bank. <https://hdl.handle.net/10986/37564>.
+ 
+![]("scaling%20up%20romania%20word%20cloud.png" "Scaling up Romania Word Cloud")
+
