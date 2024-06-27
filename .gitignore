@@ -7,3 +7,4 @@ vendor
 *.bak2
 *.bak/
 *.bak2/
+*~
