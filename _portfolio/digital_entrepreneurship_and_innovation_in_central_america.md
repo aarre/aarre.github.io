@@ -27,3 +27,5 @@ operations and for start-ups in general.
 International Finance Corporation. 2021. Digital Entrepreneurship and 
 Innovation in Central America. Washington, DC: World Bank.
 <https://hdl.handle.net/10986/37843>.
+
+![Word cloud image representing frequency of terms in this document](/portfolio/digital_entrepreneurship_and_innovation_in_central_america_word_cloud.png "Digital Entrepreneurship and Innovation in Central America Word Cloud")
