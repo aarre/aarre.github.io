@@ -215,22 +215,22 @@ def make_one_word_cloud(text_path: str, image_path: str):
     frequencies.pop("world bank", None)
     frequencies.pop("world bank group", None)
 
-    cloud = wordcloud.WordCloud(width=1920, height=1080,
-                                background_color='white',
-                                stopwords=stop_words.STOP_WORDS,
-                                font_path="./assets/fonts/roboto/Roboto-Regular.ttf").generate(text)
-
     # cloud = wordcloud.WordCloud(width=1920, height=1080,
     #                             background_color='white',
-    #                             stopwords=set(),
-    #                             font_path="./assets/fonts/roboto/Roboto-Regular.ttf").generate_from_frequencies(
-    #     frequencies)
+    #                             stopwords=stop_words.STOP_WORDS,
+    #                             font_path="./assets/fonts/roboto/Roboto-Regular.ttf").generate(text)
+
+    cloud = wordcloud.WordCloud(width=1920, height=1080,
+                                background_color='white',
+                                font_path="./assets/fonts/roboto/Roboto-Regular.ttf").generate_from_frequencies(
+        frequencies)
 
     plt.imshow(cloud)
     plt.tight_layout(pad=0)
     plt.axis('off')
     plt.savefig(image_path, dpi=300, bbox_inches='tight')
 
+    return frequencies
 
 if __name__ == "__main__":
     logging.basicConfig(level=logging.DEBUG)
@@ -242,6 +242,8 @@ if __name__ == "__main__":
     make_one_word_cloud("_portfolio/starting_up_romania.txt",
                         "_portfolio/starting_up_romania_word_cloud.png")
 
-    make_one_word_cloud(
+    frequencies = make_one_word_cloud(
         "_portfolio/digital_entrepreneurship_and_innovation_in_central_america.txt",
         "_portfolio/digital_entrepreneurship_and_innovation_in_central_america_word_cloud.png")
+
+    sorted_frequencies = dict(sorted(frequencies.items()))
