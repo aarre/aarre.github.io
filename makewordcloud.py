@@ -15,6 +15,7 @@ from nltk.corpus import wordnet as wn
 from nltk.stem.wordnet import WordNetLemmatizer
 from nltk import pos_tag
 from collections import defaultdict
+from spacy.lang.en import stop_words
 
 nltk.download('averaged_perceptron_tagger')
 nltk.download('brown')
@@ -86,7 +87,7 @@ def make_one_word_cloud(text_path: str, image_path: str):
     text = text.replace("\n", " ")
     # text = text.translate(str.maketrans('', '', string.punctuation))  # Remove all punctuation
     # Remove short words
-    " ".join(word for word in text.split() if len(word) > 2)
+    text = " ".join(word for word in text.split() if len(word) > 2)
     # Remove possessives with curly quotes, which show up as their own words with space in them
     text = case_insensitive_replace("’s", "", text)
 
@@ -103,25 +104,34 @@ def make_one_word_cloud(text_path: str, image_path: str):
     # tokens = word_tokenize(text)
     delimiters = {r"\s+", ";", ":", ".", "(", ")", "/", "“", "”"}
     regexp = r"[" + "|".join(delimiters) + r"]\s*"
-    print("Regexp:", "<" + regexp + ">")
+    logger.debug("Regexp:", "<" + regexp + ">")
     tokens = re.split(regexp, text)
-    print("Tokens: " + " ".join(tokens))
+    logger.debug("Tokens: " + " ".join(tokens))
 
     tokens = [token for token in tokens if token not in delimiters]
-    print("Tokens: " + " ".join(tokens))
+    logger.debug("Tokens: " + " ".join(tokens))
     words = set(nltk.corpus.words.words())
-    custom_words = {"logframe", "msme", "msmes", "r&d", "sme", "smes",
-                    "startup"}
+    custom_words = {"blockchain", "broadband", "challenges",
+                    "database", "developing", "economies",
+                    "ecosystems", "entrepreneurs", "firms",
+                    "guatemala", "high-tech", "honduras",
+                    "indicators", "jobs", "logframe", "manufacturing",
+                    "msme", "msmes", "opportunities", "r&d", "sme",
+                    "smes", "nicaragua", "robotics", "salvador",
+                    "start-up", "startup", "technologies",
+                    "washington", "women"}
     lemma_function = WordNetLemmatizer()
     text_list = []
     for token, tag in pos_tag(tokens):
         lemma = lemma_function.lemmatize(token, tag_map[tag[0]])
         lemma = lemma.lower()
-        if len(lemma) > 2 and (
-                lemma in words or lemma in custom_words):
-            text_list.append(lemma)  # print(token, "=>", lemma)
+        if len(lemma) > 2 and lemma not in stop_words.STOP_WORDS and (lemma in words or lemma in custom_words):
+            text_list.append(lemma)
+            logger.debug(
+                "Accepted: '" + token + "' => '" + lemma + "'")
         else:
-            print("Rejected: '" + token + "' => '" + lemma + "'")
+            logger.debug(
+                "Rejected: '" + token + "' => '" + lemma + "'")
 
     text = " ".join(text_list)
 
@@ -177,6 +187,9 @@ def make_one_word_cloud(text_path: str, image_path: str):
 
     frequencies = dict(frequencies)
 
+    logger.debug("smes: " + str(frequencies["smes"]))
+    logger.debug("msmes: " + str(frequencies["msmes"]))
+
     # # Get frequencies of noun phrases
     # frequencies = blob.np_counts
     #
@@ -204,18 +217,23 @@ def make_one_word_cloud(text_path: str, image_path: str):
 
     cloud = wordcloud.WordCloud(width=1920, height=1080,
                                 background_color='white',
-                                font_path="./assets/fonts/roboto/Roboto-Regular.ttf").generate_from_frequencies(
-        frequencies)
+                                stopwords=stop_words.STOP_WORDS,
+                                font_path="./assets/fonts/roboto/Roboto-Regular.ttf").generate(text)
+
+    # cloud = wordcloud.WordCloud(width=1920, height=1080,
+    #                             background_color='white',
+    #                             stopwords=set(),
+    #                             font_path="./assets/fonts/roboto/Roboto-Regular.ttf").generate_from_frequencies(
+    #     frequencies)
 
     plt.imshow(cloud)
     plt.tight_layout(pad=0)
     plt.axis('off')
-    plt.savefig(image_path,
-                dpi=300, bbox_inches='tight')
+    plt.savefig(image_path, dpi=300, bbox_inches='tight')
 
 
 if __name__ == "__main__":
-    logging.basicConfig(level=logging.INFO)
+    logging.basicConfig(level=logging.DEBUG)
     logger.info("Starting up word cloud generator")
 
     make_one_word_cloud("_portfolio/scaling_up_romania.txt",
@@ -224,5 +242,6 @@ if __name__ == "__main__":
     make_one_word_cloud("_portfolio/starting_up_romania.txt",
                         "_portfolio/starting_up_romania_word_cloud.png")
 
-    make_one_word_cloud("_portfolio/digital_entrepreneurship_and_innovation_in_central_america.txt",
-                        "_portfolio/digital_entrepreneurship_and_innovation_in_central_america_word_cloud.png")
+    make_one_word_cloud(
+        "_portfolio/digital_entrepreneurship_and_innovation_in_central_america.txt",
+        "_portfolio/digital_entrepreneurship_and_innovation_in_central_america_word_cloud.png")
