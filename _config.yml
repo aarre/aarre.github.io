@@ -47,10 +47,10 @@ logo:                  /assets/img/logo.png
 # This should be the same author as first entry in `_data/authors.yml`.
 author:
   # Used by `jekyll-feed`:
-  name:                <firstname> <lastname>
-  email:               <mail@domain.tld>
+  name:                Aarre Laakso
+  email:               <aarre.laakso@gmail.com>
   # # Used by `jekyll-seo-tag`:
-  # twitter:             <username>
+  twitter:             aarrelaakso
 
 # Add links to the sidebar.
 menu:
@@ -143,12 +143,6 @@ defaults:
       layout:          plain
       sitemap:         false
 
-  # # You can use the following to enable comments on all posts.
-  # - scope:
-  #     type:            posts
-  #   values:
-  #     comments:        true
-
   # `jekyll-seo-tag` will mark collection outputs as `BlogPosting`,
   # but we want them to be `WebPage`s:
   - scope:
@@ -232,7 +226,7 @@ hydejack:
   # When set to `true`, will not extend the content in the "third column" on large screens.
   # Instead, all content will remains within the center column.
   # Note that this will not affect the Table of Contents, use `no_toc` instead.
-  no_third_column:     false
+  no_third_column:     true
 
   # Set to `true` if you don't like oversized headlines on large screens.
   no_large_headings:   false
