@@ -11,6 +11,9 @@
 # NOTE: You don't need to provide this property when hosting on GitHub Pages or Netlify.
 # baseurl:               '/hydejack-starter-kit'
 
+# Required for Netlify
+repository: github.com/aarre/aarre.github.io
+
 cover:  true
 
 # Try this to improve performance
