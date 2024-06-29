@@ -3,7 +3,7 @@
 # https://localhost:4000/
 
 publish:
-	make clean
+	make update
 	make build
 
 ready:
@@ -24,7 +24,9 @@ serve:
 
 update:
 	bundle config set path 'vendor/bundle'
+	bundle install --redownload
 	bundle update --bundler
+	gem update --system
 
 .PHONY:	clean
 
