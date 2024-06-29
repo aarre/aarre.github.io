@@ -1,17 +1,25 @@
 
-# Generate static pages and serve them through a website at
-# https://localhost:4000/
+# Publish to GitHub/Netlify
 
 github:
 	make update
 	make build
+	git add .
+	git commit
+
+# Build for a production environment
+
+build:
+	bundle exec jekyll build
+
+# Publish to localhost
 
 local:
 	make clean
 	make serve
 
-build:
-	bundle exec jekyll build
+# Generate static pages and serve them through a website at
+# https://localhost:4000/
 
 serve:
 	bundle exec jekyll serve --incremental
@@ -24,11 +32,18 @@ serve:
 
 update:
 	bundle config set path 'vendor/bundle'
-	bundle install --redownload
 	bundle update --bundler
 	gem update --system
 
+# Some things take a long time and only need to be done,
+# for example, after upgrading ruby
+
+imdesperate:
+	bundle install --redownload
+
 .PHONY:	clean
+
+# Remove what can be removed to ensure a good build
 
 clean:
 	bundle exec jekyll clean
