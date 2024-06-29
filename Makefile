@@ -1,9 +1,8 @@
 
 # Publish to GitHub/Netlify
 
-netlify:
-	make update
-	make build
+
+make push:
 	git add .
 	git commit
 	git push
