@@ -12,7 +12,7 @@
 # baseurl:               '/hydejack-starter-kit'
 
 # Required for Netlify
-repository: github.com/aarre/aarre.github.io
+repository: aarre/aarre.github.io
 
 cover:  true
 
