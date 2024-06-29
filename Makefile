@@ -2,11 +2,11 @@
 # Generate static pages and serve them through a website at
 # https://localhost:4000/
 
-publish:
+github:
 	make update
 	make build
 
-ready:
+local:
 	make clean
 	make serve
 
