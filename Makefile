@@ -2,9 +2,16 @@
 # Generate static pages and serve them through a website at
 # https://localhost:4000/
 
+publish:
+	make clean
+	make build
+
 ready:
 	make clean
 	make serve
+
+build:
+	bundle exec jekyll build
 
 serve:
 	bundle exec jekyll serve --incremental
