@@ -1,4 +1,4 @@
 *.docx filter=lfs diff=lfs merge=lfs -text
 *.pdf filter=lfs diff=lfs merge=lfs -text
 *.xlsx filter=lfs diff=lfs merge=lfs -text
-cv.pdf !filter !diff !merge text
+cv.pdf !filter !diff !merge -text
