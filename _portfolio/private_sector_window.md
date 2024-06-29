@@ -37,3 +37,7 @@ World Bank. 2024. “A Focused Assessment of the International Development
 Associations’s Private Sector Window: An Update to the Independent Evaluation
 Group’s 2021 Early-Stage Assessment.” Independent Evaluation Group. Washington,
 DC: World Bank. https://doi.org/10.1596/IEG186062.
+
+![Word cloud image representing frequency of terms in this document](/portfolio/private_sector_window_word_cloud.png "Private Sector Window Word Cloud")
+
+
