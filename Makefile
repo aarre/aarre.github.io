@@ -1,11 +1,12 @@
 
 # Publish to GitHub/Netlify
 
-github:
+netlify:
 	make update
 	make build
 	git add .
 	git commit
+	git push
 
 # Build for a production environment
 
