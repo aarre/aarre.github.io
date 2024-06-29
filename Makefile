@@ -1,5 +1,10 @@
+
 # Generate static pages and serve them through a website at
 # https://localhost:4000/
+
+ready:
+	make clean
+	make serve
 
 serve:
 	bundle exec jekyll serve --incremental
@@ -14,3 +19,7 @@ update:
 	bundle config set path 'vendor/bundle'
 	bundle update --bundler
 
+.PHONY:	clean
+
+clean:
+	bundle exec jekyll clean
