@@ -35,6 +35,6 @@
 [[plugins]]
   package = "netlify-plugin-checklinks"
   [plugins.inputs]
-    skipPatterns = ['https://fonts.gstatic.com']
-    skipPatterns = ["https://www.google-analytics.com"]
-    skipPatterns = ["https://fonts.googleapis.com"]
+    skipPatterns = ['https://fonts.gstatic.com',
+        "https://www.google-analytics.com",
+        "https://fonts.googleapis.com"]
