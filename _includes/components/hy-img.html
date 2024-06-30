@@ -9,8 +9,10 @@
   {% assign src = include.img.src | default:include.img.path %}
   {% capture sources %}
     src="{% include_cached smart-url url=src %}"
-    {% if srcset %}srcset="{{ srcset | strip }}"{% endif %}
-    {% if include.sizes %}sizes="{{ include.sizes | replace:' ', '' }}"{% endif %}
+      {% comment %}
+        {% if srcset %}srcset="{{ srcset | strip }}"{% endif %}
+        {% if include.sizes %}sizes="{{ include.sizes | replace:' ', '' }}"{% endif %}
+      {% endcomment %}
   {% endcapture %}
 {% else %}
   {% capture sources %}
