@@ -47,6 +47,7 @@ imdesperate:
 
 # Build the site (to generate current HTML) and then validate the HTML
 check:
+	make clean
 	make build
 	make validate
 
