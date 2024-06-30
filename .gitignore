@@ -8,3 +8,5 @@ vendor
 *.bak/
 *.bak2/
 *~
+
+*.swp
