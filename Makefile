@@ -45,6 +45,14 @@ update:
 imdesperate:
 	bundle install --redownload
 
+# Build the site (to generate current HTML) and then validate the HTML
+check:
+	make build
+	make validate
+
+validate:
+	html5validator --root ../aarre.github.io/_site --also-check-css
+
 .PHONY:	clean
 
 # Remove what can be removed to ensure a good build
