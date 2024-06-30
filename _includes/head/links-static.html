@@ -7,14 +7,14 @@
 
 {% if site.google_fonts %}
   {%- capture google_fonts_url %}{{ site.google_fonts_url | default:'https://fonts.googleapis.com' }}{%- endcapture -%}
-  <link rel="preload" href="{{ google_fonts_url }}">
+  <link rel="preconnect" href="{{ google_fonts_url }}" crossorigin>
   {%- if google_fonts_url == 'https://fonts.googleapis.com' -%}
-    <link rel="preload" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   {%- endif -%}
 {% endif %}
 
 {% if site.google_analytics %}
-  <link rel="preload" href="https://www.google-analytics.com">
+  <link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
 {% endif %}
 
 <link rel="preload" href="{{ '/assets/img/swipe.svg' | relative_url }}" as="image" id="_hrefSwipeSVG">
