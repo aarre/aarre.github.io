@@ -4,10 +4,10 @@ version = "0.1.0"
 description = ""
 authors = ["Aarre Laakso <aarre.laakso@gmail.com>"]
 readme = "README.md"
-packages = [{include = "aarre"}]
 
 [tool.poetry.dependencies]
 python = "^3.12"
+html5validator = "^0.4.2"
 
 
 [build-system]
