@@ -3,8 +3,6 @@
 
 
 push:
-	make update
-	make build
 	make git
 
 

@@ -3,6 +3,6 @@ layout: about
 title:  About
 ---
 
-This is about me.
+I help teams write.
 
 <!--author-->
