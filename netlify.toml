@@ -5,3 +5,36 @@
 [build.environment]
   JEKYLL_ENV = "production"
   RUBY_VERSION = "3.2.1"
+
+# Exclude URLs that cause problems with the Checklinks plugin on Netlify as follows:
+#
+#5:39:05 AM: Failed during stage 'building site': Build script returned non-zero exit code: 2 (https://ntl.fyi/exit-code-2)
+#5:39:05 AM: .....................................................................×××
+#5:39:05 AM:   ✖ FAIL preconnect-check https://fonts.googleapis.com
+#5:39:05 AM:   | operator: preconnect-check
+#5:39:05 AM:   | expected: connection accepted https://fonts.googleapis.com
+#5:39:05 AM:   |   actual: self-signed certificate
+#5:39:05 AM:   |       at: _site/404.html:2:2330 <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin="">
+#5:39:05 AM:   ✖ FAIL preconnect-check https://fonts.gstatic.com
+#5:39:05 AM:   | operator: preconnect-check
+#5:39:05 AM:   | expected: connection accepted https://fonts.gstatic.com
+#5:39:05 AM:   |   actual: self-signed certificate
+#5:39:05 AM:   |       at: _site/404.html:2:2401 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+#5:39:05 AM:   ✖ FAIL preconnect-check https://www.google-analytics.com
+#5:39:05 AM:   | operator: preconnect-check
+#5:39:05 AM:   | expected: connection accepted https://www.google-analytics.com
+#5:39:05 AM:   |   actual: self-signed certificate
+#5:39:05 AM:   |       at: _site/404.html:2:2469 <link rel="preconnect" href="https://www.google-analytics.com" crossorigin="">
+#5:39:05 AM:   72 tests
+#5:39:05 AM:   69 passed
+#5:39:05 AM:    3 failed
+#5:39:05 AM: ​
+#5:39:05 AM: Plugin "netlify-plugin-checklinks" failed
+#5:39:05 AM: ────────────────────────────────────────────────────────────────
+
+[[plugins]]
+  package = "netlify-plugin-checklinks"
+  [plugins.inputs]
+    skipPatterns = ['https://fonts.gstatic.com']
+    skipPatterns = ["https://www.google-analytics.com"]
+    skipPatterns = ["https://fonts.googleapis.com"]
