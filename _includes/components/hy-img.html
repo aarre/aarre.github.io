@@ -14,6 +14,7 @@
         {% if include.sizes %}sizes="{{ include.sizes | replace:' ', '' }}"{% endif %}
       {% endcomment %}
   {% endcapture %}
+
 {% else %}
   {% capture sources %}
     src="{% include_cached smart-url url=include.img %}"
