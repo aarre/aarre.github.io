@@ -15,20 +15,21 @@
 
 {% include styles/variables.scss %}
 @import "variables";
-@import "my-variables";
-@import "mixins";
+@import "_sass/pro/bootstrap-mod/mixins";
 
 {% if site.hydejack.dark_mode.dynamic %}
-  @import "pro/dark-mode-dynamic";
+  @import "_sass/pro/_dark-mode-dynamic";
 {% else %}
-  @import "pro/dark-mode";
+  @import "_sass/pro/dark-mode";
 {% endif %}
 
-@import "reboot-mod";
+//No such file in Hydejack
+//AL 2024-06-30
+//@import "reboot-mod";
 
 {% unless site.hydejack.no_inline_css or jekyll.environment == 'development' %}
-  @import "pooleparty/__link__/base";
-  @import "pooleparty/__link__/type";
+  @import "_sass/pooleparty/__link__/_base";
+  @import "_sass/pooleparty/__link__/_type";
   @import "pooleparty/__link__/table";
   @import "pooleparty/__link__/footer";
   @import "pooleparty/__link__/footnotes";
