@@ -13,23 +13,27 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+// The paths used with these @import commands to not correspond to paths on disk and therefore throw errors in
+// PyCharm's code inspector. They are nevertheless correct.
+// AL 2024-06-30
+
 {% include styles/variables.scss %}
 @import "variables";
-@import "_sass/pro/bootstrap-mod/mixins";
+@import "mixins";
 
 {% if site.hydejack.dark_mode.dynamic %}
-  @import "_sass/pro/_dark-mode-dynamic";
+  @import "pro/dark-mode-dynamic";
 {% else %}
-  @import "_sass/pro/dark-mode";
+  @import "pro/dark-mode";
 {% endif %}
 
-//No such file in Hydejack
-//AL 2024-06-30
-//@import "reboot-mod";
+// No such file in Hydejack
+// AL 2024-06-30
+// @import "reboot-mod";
 
 {% unless site.hydejack.no_inline_css or jekyll.environment == 'development' %}
-  @import "_sass/pooleparty/__link__/_base";
-  @import "_sass/pooleparty/__link__/_type";
+  @import "pooleparty/__link__/_base";
+  @import "pooleparty/__link__/_type";
   @import "pooleparty/__link__/table";
   @import "pooleparty/__link__/footer";
   @import "pooleparty/__link__/footnotes";
