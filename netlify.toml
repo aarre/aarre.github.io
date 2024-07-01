@@ -10,6 +10,6 @@
   package = "netlify-plugin-cloudinary"
 
   [plugins.inputs]
-  cloudName = "dikhrrxhx
+  cloudName = "dikhrrxhx"
   imagesPath = "/assets/img"
   # or imagesPath = [ "/my-path", "/my-other-path" ]
