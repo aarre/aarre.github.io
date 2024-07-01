@@ -5,3 +5,11 @@
 [build.environment]
   JEKYLL_ENV = "production"
   RUBY_VERSION = "3.2.1"
+
+[[plugins]]
+  package = "netlify-plugin-cloudinary"
+
+  [plugins.inputs]
+  cloudName = "dikhrrxhx
+  imagesPath = "/assets/img"
+  # or imagesPath = [ "/my-path", "/my-other-path" ]
