@@ -3,6 +3,7 @@
 
 
 push:
+	make build
 	make git
 
 
