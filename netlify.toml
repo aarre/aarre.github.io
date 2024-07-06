@@ -15,6 +15,18 @@
   # or imagesPath = [ "/my-path", "/my-other-path" ]
 
 [[redirects]]
+  from = "/1.php"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/404.php"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/wp-login.php"
   to = "/"
   status = 301
@@ -33,6 +45,24 @@
   force = true
 
 [[redirects]]
+  from = "//blog/wp-includes/wlwmanifest.xml"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "//cms/wp-includes/wlwmanifest.xml"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/.env"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "//www.googletagmanager.com/gtm.js"
   to = "/www.googletagmanager.com/gtm.js"
   status = 301
@@ -46,6 +76,12 @@
 
 [[redirects]]
   from = "/assets/sitedata.js"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/haxor.php"
   to = "/"
   status = 301
   force = true
@@ -75,13 +111,25 @@
   force = true
 
 [[redirects]]
-  from = "/wp-content/uploads/2019/09/Acronis-Error-Message.png"
+  from = "/merchant/z/payment/"
   to = "/"
   status = 301
   force = true
 
 [[redirects]]
-  from = "/merchant/z/payment/"
+  from = "//shop/wp-includes/wlwmanifest.xml"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "//test/wp-includes/wlwmanifest.xml"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "//wordpress/wp-includes/wlwmanifest.xml"
   to = "/"
   status = 301
   force = true
@@ -93,13 +141,19 @@
   force = true
 
 [[redirects]]
-  from = "/.env"
+  from = "/wp-content/uploads/2019/09/Acronis-Error-Message.png"
   to = "/"
   status = 301
   force = true
 
 [[redirects]]
   from = "/wp-content/uploads/2019/09/Acronis-Support-Page-598x1024.png"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "//xmlrpc.php"
   to = "/"
   status = 301
   force = true
