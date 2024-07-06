@@ -14,107 +14,107 @@
   imagesPath = "/assets/img"
   # or imagesPath = [ "/my-path", "/my-other-path" ]
 
-[[redirects]]
-  from = "/1.php"
-  to = "/"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/404.php"
-  to = "/"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/wp-login.php"
-  to = "/"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/.git/config"
-  to = "/"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/assets/js/search-worker-9.1.6.js"
-  to = "/assets/js/search-hydejack-9.1.6.js"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "//blog/wp-includes/wlwmanifest.xml"
-  to = "/"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "//cms/wp-includes/wlwmanifest.xml"
-  to = "/"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/.env"
-  to = "/"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "//www.googletagmanager.com/gtm.js"
-  to = "/www.googletagmanager.com/gtm.js"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "//www.google-analytics.com/analytics.js"
-  to = "/www.google-analytics.com/analytics.js"
-  status = 301
-  force = true
-
 #[[redirects]]
-#  from = "/assets/sitedata.js"
+#  from = "/1.php"
 #  to = "/"
 #  status = 301
 #  force = true
-
-[[redirects]]
-  from = "/haxor.php"
-  to = "/"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/kcfinder/upload.php"
-  to = "/"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/wp-json"
-  to = "/"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/category/software-review"
-  to = "/"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/inputs.php"
-  to = "/"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/merchant/z/payment/"
-  to = "/"
-  status = 301
-  force = true
+#
+#[[redirects]]
+#  from = "/404.php"
+#  to = "/"
+#  status = 301
+#  force = true
+#
+#[[redirects]]
+#  from = "/wp-login.php"
+#  to = "/"
+#  status = 301
+#  force = true
+#
+#[[redirects]]
+#  from = "/.git/config"
+#  to = "/"
+#  status = 301
+#  force = true
+#
+#[[redirects]]
+#  from = "/assets/js/search-worker-9.1.6.js"
+#  to = "/assets/js/search-hydejack-9.1.6.js"
+#  status = 301
+#  force = true
+#
+#[[redirects]]
+#  from = "//blog/wp-includes/wlwmanifest.xml"
+#  to = "/"
+#  status = 301
+#  force = true
+#
+#[[redirects]]
+#  from = "//cms/wp-includes/wlwmanifest.xml"
+#  to = "/"
+#  status = 301
+#  force = true
+#
+#[[redirects]]
+#  from = "/.env"
+#  to = "/"
+#  status = 301
+#  force = true
+#
+#[[redirects]]
+#  from = "//www.googletagmanager.com/gtm.js"
+#  to = "/www.googletagmanager.com/gtm.js"
+#  status = 301
+#  force = true
+#
+#[[redirects]]
+#  from = "//www.google-analytics.com/analytics.js"
+#  to = "/www.google-analytics.com/analytics.js"
+#  status = 301
+#  force = true
+#
+##[[redirects]]
+##  from = "/assets/sitedata.js"
+##  to = "/"
+##  status = 301
+##  force = true
+#
+#[[redirects]]
+#  from = "/haxor.php"
+#  to = "/"
+#  status = 301
+#  force = true
+#
+#[[redirects]]
+#  from = "/kcfinder/upload.php"
+#  to = "/"
+#  status = 301
+#  force = true
+#
+#[[redirects]]
+#  from = "/wp-json"
+#  to = "/"
+#  status = 301
+#  force = true
+#
+#[[redirects]]
+#  from = "/category/software-review"
+#  to = "/"
+#  status = 301
+#  force = true
+#
+#[[redirects]]
+#  from = "/inputs.php"
+#  to = "/"
+#  status = 301
+#  force = true
+#
+#[[redirects]]
+#  from = "/merchant/z/payment/"
+#  to = "/"
+#  status = 301
+#  force = true
 
 [[redirects]]
   from = "//shop/wp-includes/wlwmanifest.xml"
