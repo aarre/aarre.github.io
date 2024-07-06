@@ -74,11 +74,11 @@
   status = 301
   force = true
 
-[[redirects]]
-  from = "/assets/sitedata.js"
-  to = "/"
-  status = 301
-  force = true
+#[[redirects]]
+#  from = "/assets/sitedata.js"
+#  to = "/"
+#  status = 301
+#  force = true
 
 [[redirects]]
   from = "/haxor.php"
