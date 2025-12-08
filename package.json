@@ -1,6 +1,0 @@
-{
-  "dependencies": {
-    "babel": "^6.23.0",
-    "re-template-tag": "^2.0.1"
-  }
-}
